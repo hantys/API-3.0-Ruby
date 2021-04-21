@@ -56,7 +56,7 @@ module Cielo
 
       def to_json(*options)
         hash = as_json(*options)
-        hash.reject! {|k,v| v.nil?}
+        hash.reject! { |_k, v| v.nil? }
         hash.to_json(*options)
       end
 
@@ -109,7 +109,7 @@ module Cielo
         Status.success?(status)
       end
 
-      def as_json(options={})
+      def as_json(_options = {})
         {
           ServiceTaxAmount: @service_tax_amount,
           Installments: @installments,
@@ -118,7 +118,7 @@ module Cielo
           Authenticate: @authenticate,
           Recurrent: @recurrent,
           RecurrentPayment: @recurrent_payment,
-          CreditCard: @credit_card ,
+          CreditCard: @credit_card,
           DebitCard: @debit_card,
           SoftDescriptor: @soft_descriptor,
           ReturnUrl: @return_url,
