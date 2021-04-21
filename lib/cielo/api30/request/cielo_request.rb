@@ -32,12 +32,8 @@ module Cielo
 
           client = Net::HTTP.new(uri.host, uri.port)
           client.use_ssl = true
-          puts "'***** #{uri} ****'"
-          puts "'***** #{body} ****'"
+
           response = client.send_request(method, uri.path, body, headers)
-          puts "'***** #{response} ****'"
-          
-          puts "'***** #{response.body} ****'"
           data = JSON.parse(response.body)
 
           raise CieloError.new(data.first["Code"], data.first["Message"]) if response.code.to_i >= 400
