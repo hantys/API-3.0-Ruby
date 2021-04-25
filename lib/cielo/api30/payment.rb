@@ -123,6 +123,7 @@ module Cielo
           SoftDescriptor: @soft_descriptor,
           ReturnUrl: @return_url,
           Provider: @provider,
+          IsCryptocurrencyNegotiation: false,
           Type: @type,
           Amount: @amount,
           Currency: @currency,
